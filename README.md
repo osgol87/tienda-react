@@ -1,12 +1,49 @@
-# React + Vite
+# Speed Sneakers - Tienda de Tenis Online
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Speed Sneakers es una aplicación web desarrollada con React y Vite que simula una tienda de tenis moderna. Permite a los usuarios explorar productos destacados, buscar y filtrar tenis por nombre, marca o categoría, ver detalles de cada producto, agregar productos al carrito y gestionar sus compras.
 
-Currently, two official plugins are available:
+## Funcionalidades principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Catálogo de productos:** Visualiza todos los tenis disponibles, con imágenes, descripciones y precios.
+- **Búsqueda y filtrado:** Encuentra productos fácilmente usando el buscador por nombre, marca o categoría.
+- **Página de detalles:** Consulta información detallada de cada producto antes de comprar.
+- **Carrito de compras:** Añade productos al carrito, visualiza el total y gestiona la cantidad de cada artículo.
+- **Política de devoluciones:** Consulta las condiciones y el proceso para realizar devoluciones.
+- **Página de contacto:** Envía dudas o comentarios a través de un formulario de contacto.
+- **Navegación intuitiva:** Acceso rápido a todas las secciones mediante el menú principal y el footer.
 
-## Expanding the ESLint configuration
+Esta aplicación es ideal como base para proyectos de e-commerce, demostraciones o prácticas con React
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Ejecución local
+
+Sigue estos pasos para ejecutar Speed Sneakers en tu entorno local:
+
+1. **Clona el repositorio:**
+
+   ```bash
+   git clone https://github.com/tu-usuario/tienda-app.git
+   cd tienda-app
+   ```
+
+2. **Instala las dependencias:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Inicia la aplicación:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Abre la aplicación en tu navegador:**
+   Visita [http://localhost:5173](http://localhost:5173) para ver Speed Sneakers funcionando.
+
+**Requisitos:**  
+
+- Node.js 18+  
+- npm 9+  
+- Navegador web moderno
+
+¡Listo! Ahora puedes explorar y probar todas las funcionalidades de la tienda en tu máquina local.
