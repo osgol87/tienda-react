@@ -9,6 +9,7 @@ import CartPage from './pages/CartPage'
 import ReturnsPolicyPage from './pages/ReturnsPolicyPage'
 import ContactPage from './pages/ContactPage'
 import './styles/styles.css'
+import { Analytics } from '@vercel/analytics/react'
 
 const SneakerStoreApp = () => {
 
@@ -56,6 +57,7 @@ const SneakerStoreApp = () => {
           </Routes>
         </main>
         <Footer />
+        <Analytics />
     </Router>
   )
 }
