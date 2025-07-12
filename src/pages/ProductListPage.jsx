@@ -38,9 +38,11 @@ const ProductListPage = ({ onAddToCart }) => {
     }
 
     return (
-        <div>
-            <h1>{searchTerm ? `Resultados para "${searchTerm}"` : "Todos los Productos"}</h1>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div className='product-list'>
+            <h1 className='product-list__title'>
+                {searchTerm ? `Resultados para "${searchTerm}"` : "Todos los Productos"}
+            </h1>
+            <div className='product-list__products'>
                 {filteredProducts.length > 0 ? 
                 (
                     filteredProducts.map(product => (
@@ -48,7 +50,7 @@ const ProductListPage = ({ onAddToCart }) => {
                     ))
                 ) : 
                 (
-                    <p>No se encontraron productos.</p>
+                    <p className='products-list__empty'>No se encontraron productos.</p>
                 )}
             </div>
         </div>

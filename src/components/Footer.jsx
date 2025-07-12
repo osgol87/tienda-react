@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import Copyright from './Copyright';
 
 const Footer = () => (
-    <footer className='footerContainer'>
+    <footer className='footer'>
         <Copyright />
-        <div>
-            <Link to="/returns">Política de Devoluciones</Link>
-            <Link to="/contact">Contacto</Link>
+        <div className='footer__links'>
+            <Link className='footer__link' to="/returns">Política de Devoluciones</Link>
+            <Link className='footer__link' to="/contact">Contacto</Link>
         </div>
     </footer>
 );

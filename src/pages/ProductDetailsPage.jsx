@@ -23,28 +23,19 @@ const ProductDetailPage = ({ onAddToCart }) => {
     }
 
     return (
-        <div style={styles.container}>
-            <img src={`/${product.imageUrl}`} alt={product.name} style={styles.image} />
-            <div style={styles.details}>
-                <h1>{product.name}</h1>
-                <p style={styles.brand}>Marca: {product.brand}</p>
-                <p style={styles.price}>${product.price.toFixed(2)}</p>
-                <p><strong>Descripción:</strong> {product.longDescription}</p>
-                <button onClick={() => onAddToCart(product)} style={styles.button}>
+        <div className='product-detail-page'>
+            <img src={`/${product.imageUrl}`} alt={product.name} className='product-detail__image'/>
+            <div className='product-detail__details'>
+                <h1 className='product-detail__title'>{product.name}</h1>
+                <p className='product-detail__brand'>Marca: {product.brand}</p>
+                <p className='product-detail__price'>${product.price.toFixed(2)}</p>
+                <p className='product-detail__description'><strong>Descripción:</strong> {product.longDescription}</p>
+                <button onClick={() => onAddToCart(product)} className='product-detail__add-to-cart-button'>
                     Agregar al Carrito
                 </button>
             </div>
         </div>
     );
-};
-
-const styles = {
-    container: { display: 'flex', margin: '2rem', gap: '2rem' },
-    image: { width: '400px', height: '400px', objectFit: 'cover', border: '1px solid #ddd' },
-    details: { flex: 1 },
-    brand: { color: '#555', fontSize: '1.1rem' },
-    price: { fontWeight: 'bold', fontSize: '1.5rem', color: '#007bff' },
-    button: { padding: '1rem 2rem', fontSize: '1.2rem', backgroundColor: '#28a745', color: 'white', border: 'none', cursor: 'pointer' }
 };
 
 export default ProductDetailPage;

@@ -6,6 +6,8 @@ import HomePage from './pages/HomePage'
 import ProductListPage from './pages/ProductListPage'
 import ProductDetailsPage from './pages/ProductDetailsPage'
 import CartPage from './pages/CartPage'
+import ReturnsPolicyPage from './pages/ReturnsPolicyPage'
+import ContactPage from './pages/ContactPage'
 import './styles/styles.css'
 
 const SneakerStoreApp = () => {
@@ -49,7 +51,8 @@ const SneakerStoreApp = () => {
             <Route path='/products' element={<ProductListPage onAddToCart={handleAddToCart} />} />
             <Route path='/products/:id' element={<ProductDetailsPage onAddToCart={handleAddToCart} />} />
             <Route path='/cart' element={<CartPage cartItems={cartItems} onRemoveFromCart={handleRemoveFromCart} />} />
-            { /* Agregar /returns /contact */ }
+            <Route path="/returns" element={<ReturnsPolicyPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
         <Footer />

@@ -6,42 +6,33 @@ const CartPage = ({ cartItems, onRemoveFromCart }) => {
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
     return (
-        <div>
-            <h1>Tu Carrito de Compras</h1>
+        <div className='cart'>
+            <h1 className='cart__title'>Tu Carrito de Compras</h1>
             {cartItems.length === 0 ? (
-                <p>Tu carrito está vacío.</p>
+                <p className='cart__empty--message'>Tu carrito está vacío.</p>
             ) : (
-                <div>
+                <div className='cart__items'>
                     {cartItems.map(item => (
-                        <div key={item.id} style={styles.cartItem}>
-                            <img src={`/${item.imageUrl}`} alt={item.name} style={styles.image} />
-                            <div style={styles.itemDetails}>
-                                <h2>{item.name}</h2>
-                                <p>Cantidad: {item.quantity}</p>
-                                <p>Precio: ${item.price.toFixed(2)}</p>
+                        <div key={item.id} className='cart__item'>
+                            <img src={`/${item.imageUrl}`} alt={item.name} className='cart__item-image' />
+                            <div className='cart__item-details'>
+                                <h2 className='cart__item-name'>{item.name}</h2>
+                                <p className='cart__item-quantity'>Cantidad: {item.quantity}</p>
+                                <p className='cart__item-price'>Precio: ${item.price.toFixed(2)}</p>
                             </div>
-                            <button onClick={() => onRemoveFromCart(item.id)} style={styles.removeButton}>
+                            <button onClick={() => onRemoveFromCart(item.id)} className='cart__item-remove-button'>
                                 Eliminar
                             </button>
                         </div>
                     ))}
-                    <div style={styles.total}>
-                        <h2>Total: ${totalPrice.toFixed(2)}</h2>
-                        <button style={styles.checkoutButton}>Proceder al Pago</button>
+                    <div className='cart__summary'>
+                        <h2 className='cart__summary-total'>Total: ${totalPrice.toFixed(2)}</h2>
+                        <button className='cart__summary-checkout-button'>Proceder al Pago</button>
                     </div>
                 </div>
             )}
         </div>
     );
-};
-
-const styles = {
-    cartItem: { display: 'flex', alignItems: 'center', marginBottom: '1rem', padding: '1rem', border: '1px solid #ddd' },
-    image: { width: '100px', height: '100px', marginRight: '1rem' },
-    itemDetails: { flex: 1 },
-    removeButton: { backgroundColor: '#dc3545', color: 'white', border: 'none', padding: '0.5rem 1rem', cursor: 'pointer' },
-    total: { marginTop: '2rem', textAlign: 'right' },
-    checkoutButton: { backgroundColor: '#28a745', color: 'white', border: 'none', padding: '1rem 2rem', fontSize: '1.2rem', cursor: 'pointer' }
 };
 
 export default CartPage;
