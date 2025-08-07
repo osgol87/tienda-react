@@ -1,19 +1,40 @@
-import { useState, useEffect } from "react";
-import productsData from "../data/products";
+import { useState, useEffect } from 'react';
 
-// Custom Hook para manejar la lógica de los productos
-export const useProducts = () => {
+export const useProducts = (searchTerm = '') => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // Simula una llamada a una API
-  useEffect(() => {
-    // Simula un retraso de red de 1 segundo
-    setTimeout(() => {
-      setProducts(productsData);
-      setLoading(false);
-    }, 1000);
-  }, []);
+    useEffect(() => {
+        const fetchProducts = async () => {
+            setLoading(true);
+            setError(null);
+            try {
+                const gatewayUrl = import.meta.env.VITE_API_GATEWAY_URL;
+                const productsPath = import.meta.env.VITE_API_PRODUCTS_URL;
+                const baseUrl = (gatewayUrl && productsPath) ? `${gatewayUrl}${productsPath}` : 'http://localhost:8080/productservice/products';
 
-  return { products, loading };
+                // Si se proporciona un término de búsqueda, lo añadimos a la URL.
+                // Asumimos que la API soporta un parámetro `search` para filtrar.
+                const apiUrl = searchTerm
+                    ? `${baseUrl}?search=${encodeURIComponent(searchTerm)}`
+                    : baseUrl;
+
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Error al obtener los productos');
+                }
+                const data = await response.json();
+                setProducts(data);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, [searchTerm]);
+
+    return { products, loading, error };
 };

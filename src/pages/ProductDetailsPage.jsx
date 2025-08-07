@@ -1,21 +1,22 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useProducts } from '../hooks/useProducts';
+import { useProduct } from '../hooks/useProduct';
 
 const ProductDetailPage = ({ onAddToCart }) => {
     // useParams se usa para obtener los parámetros de la URL
     const { id } = useParams();
 
-    // useProducts es un hook personalizado que obtiene los productos y su estado de carga
-    const { products, loading } = useProducts();
-
-    // useEffect se usa dentro de useProducts para cargar los datos
-    const product = products.find(p => p.id === parseInt(id));
+    // useProduct es un hook personalizado que obtiene un producto por su ID y su estado de carga/error
+    const { product, loading, error } = useProduct(id);
 
     console.log('Producto:', product);
     
     if (loading) {
         return <h2>Cargando...</h2>;
+    }
+
+    if (error) {
+        return <h2>Error: {error}</h2>;
     }
 
     if (!product) {
