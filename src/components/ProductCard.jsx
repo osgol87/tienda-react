@@ -11,7 +11,7 @@ const ProductCard = ({ product, onAddToCart }) => {
                 <h3 className='product-card__title'>{product.name}</h3>
                 <p className='product-card__description'>{product.shortDescription}</p>
                 <p className='product-card__brand'>Por {product.brand}</p>
-                <p classNme='product-card__price'>${product.price.toFixed(2)}</p>
+                <p className='product-card__price'>${product.price.toFixed(2)}</p>
                 <button onClick={() => onAddToCart(product)} className='product-card__add-to-cart-button'>
                     Agregar al Carrito
                 </button>

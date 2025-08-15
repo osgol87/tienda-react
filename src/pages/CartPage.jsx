@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const CartPage = ({ cartItems, onRemoveFromCart }) => {
+const CartPage = ({ cartItems, onRemoveFromCart, onCheckout }) => {
+
+    const [isCheckingOut, setIsCheckingOut] = useState(false);
 
     // Calcula el precio total del carrito
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+    const handleCheckoutClick = async () => {
+        setIsCheckingOut(true);
+        try {
+            await onCheckout();
+            // No es necesario cambiar isCheckingOut a false en caso de éxito,
+            // ya que seremos redirigidos a otra página.
+        } catch (error) {
+            // Si onCheckout falla, el error ya se muestra en una alerta.
+            // Aquí solo re-habilitamos el botón.
+            setIsCheckingOut(false);
+        }
+    };
 
     return (
         <div className='cart'>
@@ -27,7 +42,12 @@ const CartPage = ({ cartItems, onRemoveFromCart }) => {
                     ))}
                     <div className='cart__summary'>
                         <h2 className='cart__summary-total'>Total: ${totalPrice.toFixed(2)}</h2>
-                        <button className='cart__summary-checkout-button'>Proceder al Pago</button>
+                        <button 
+                            onClick={handleCheckoutClick} 
+                            className='cart__summary-checkout-button'
+                            disabled={isCheckingOut || cartItems.length === 0}>
+                            {isCheckingOut ? 'Procesando...' : 'Proceder al Pago'}
+                        </button>
                     </div>
                 </div>
             )}

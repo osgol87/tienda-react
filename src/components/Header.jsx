@@ -36,6 +36,7 @@ const Header = ({ cartCount }) => {
                     <button type="submit" className='header__search-button'>Buscar</button>
                 </form>
                 <Link to="/products" className='header__link'>Todos los Productos</Link>
+                <Link to="/orders" className='header__link'>Mis Compras</Link>
                 <Link to="/cart" className='header__cart-link'>
                     🛒 Carrito <span className='header__cart-count'>({cartCount})</span>
                 </Link>

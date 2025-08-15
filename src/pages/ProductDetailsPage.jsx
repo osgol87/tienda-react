@@ -8,8 +8,6 @@ const ProductDetailPage = ({ onAddToCart }) => {
 
     // useProduct es un hook personalizado que obtiene un producto por su ID y su estado de carga/error
     const { product, loading, error } = useProduct(id);
-
-    console.log('Producto:', product);
     
     if (loading) {
         return <h2>Cargando...</h2>;

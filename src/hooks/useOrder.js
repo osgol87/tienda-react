@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-export const useProduct = (id) => {
-    const [product, setProduct] = useState(null);
+export const useOrder = (id) => {
+    const [order, setOrder] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -9,24 +9,22 @@ export const useProduct = (id) => {
         if (!id) {
             setLoading(false);
             return;
-        };
+        }
 
-        const fetchProduct = async () => {
+        const fetchOrder = async () => {
             setLoading(true);
             setError(null);
             try {
-                // Asumimos que VITE_API_URL está configurada, de lo contrario usamos
                 const gatewayUrl = import.meta.env.VITE_API_GATEWAY_URL;
-                const productsPath = import.meta.env.VITE_API_PRODUCTS_URL;
-
-                const apiUrl = (gatewayUrl && productsPath) ? `${gatewayUrl}${productsPath}` : 'http://localhost:8762/productservice/products';
+                const ordersPath = import.meta.env.VITE_API_ORDERS_URL;
+                const apiUrl = (gatewayUrl && ordersPath) ? `${gatewayUrl}${ordersPath}` : 'http://localhost:8762/orderservice/orders';
 
                 const response = await fetch(`${apiUrl}/${id}`);
                 if (!response.ok) {
-                    throw new Error('Producto no encontrado');
+                    throw new Error('Orden no encontrada');
                 }
                 const data = await response.json();
-                setProduct(data);
+                setOrder(data);
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -34,8 +32,8 @@ export const useProduct = (id) => {
             }
         };
 
-        fetchProduct();
+        fetchOrder();
     }, [id]);
 
-    return { product, loading, error };
+    return { order, loading, error };
 };

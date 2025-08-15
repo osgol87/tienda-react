@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useProducts } from '../hooks/useProducts';
 import ProductCard from '../components/ProductCard';
@@ -15,8 +15,13 @@ const ProductListPage = ({ onAddToCart }) => {
 
     // Hook para obtener los productos y el estado de carga.
     // Le pasamos el `searchTerm` para que el hook realice la búsqueda en la API.
-    const { products, loading, error } = useProducts(searchTerm);
+    const { products, loading, error, handleGetProducts } = useProducts(searchTerm);
 
+    useEffect(() => {
+        // Llama al hook para obtener los productos cuando el componente se monta   
+        handleGetProducts(searchTerm);
+    }, [handleGetProducts, searchTerm]); // Dependencia en searchTerm para actualizar cuando cambie
+    
     if (loading) {
         return <h2>Cargando...</h2>;
     }
