@@ -37,7 +37,7 @@ const OrderDetailPage = () => {
       <ul className="order-detail__items">
         {order.orderItems.map(item => (
           <li key={item.id} className="order-detail__item">
-            <img src={`/${item.imageUrl}`} alt={item.name} className="order-detail__item-image" />
+            <img src={`${item.imageUrl}`} alt={item.name} className="order-detail__item-image" />
             <span className="order-detail__item-name">{item.name}</span>
             <span className="order-detail__item-quantity">Cantidad: {item.quantity}</span>
             <span className="order-detail__item-price">Precio: ${item.pricePerUnit.toFixed(2)}</span>

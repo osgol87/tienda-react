@@ -19,7 +19,7 @@ const ContactPage = () => {
       <h1 className='contact-page__title'>Contacto</h1>
       <p className='contact-page__description'>¿Tienes dudas, sugerencias o necesitas ayuda? Completa el formulario o escríbenos directamente.</p>
       <div className='contact-page__info'>
-        <strong>Email:</strong> soporte@tienda-app.com<br />
+        <strong>Email:</strong> soporte@speed-sneakers.com<br />
         <strong>Teléfono:</strong> +52 55 1234 5678
       </div>
       <form onSubmit={handleSubmit} className='contact-page__form'>

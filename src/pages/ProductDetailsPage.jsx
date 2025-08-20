@@ -23,10 +23,11 @@ const ProductDetailPage = ({ onAddToCart }) => {
 
     return (
         <div className='product-detail-page'>
-            <img src={`/${product.imageUrl}`} alt={product.name} className='product-detail__image'/>
+            <img src={`${product.imageUrl}`} alt={product.name} className='product-detail__image'/>
             <div className='product-detail__details'>
                 <h1 className='product-detail__title'>{product.name}</h1>
                 <p className='product-detail__brand'>Marca: {product.brand}</p>
+                <p className='product-detail__category'>Categoría: {product.category}</p>
                 <p className='product-detail__price'>${product.price.toFixed(2)}</p>
                 <p className='product-detail__description'><strong>Descripción:</strong> {product.longDescription}</p>
                 <button onClick={() => onAddToCart(product)} className='product-detail__add-to-cart-button'>

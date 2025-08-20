@@ -146,6 +146,14 @@
   color: #777;
   margin: 0 0 1rem 0;
 }
+.product-card__category {
+  color: #333;
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 .product-card__price {
   font-weight: bold;
   font-size: 1.1rem;
@@ -331,6 +339,14 @@
 .product-detail__brand {
   color: #777;
   margin-bottom: 0.5rem;
+}
+.product-detail__category {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 .product-detail__price {
   font-weight: bold;

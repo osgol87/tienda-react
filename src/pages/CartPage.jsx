@@ -29,7 +29,7 @@ const CartPage = ({ cartItems, onRemoveFromCart, onCheckout }) => {
                 <div className='cart__items'>
                     {cartItems.map(item => (
                         <div key={item.id} className='cart__item'>
-                            <img src={`/${item.imageUrl}`} alt={item.name} className='cart__item-image' />
+                            <img src={`${item.imageUrl}`} alt={item.name} className='cart__item-image' />
                             <div className='cart__item-details'>
                                 <h2 className='cart__item-name'>{item.name}</h2>
                                 <p className='cart__item-quantity'>Cantidad: {item.quantity}</p>
